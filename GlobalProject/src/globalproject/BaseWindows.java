@@ -18,4 +18,8 @@ public abstract class BaseWindows extends javax.swing.JFrame {
         strings = ResourceBundle.getBundle("globalproject.strings",locale);
     }
     
+    protected void log(String text){
+        System.out.println(text);
+    }
+    
 }

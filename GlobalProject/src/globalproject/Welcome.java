@@ -5,22 +5,51 @@
  */
 package globalproject;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
 /**
  *
  * @author alumno
  */
 public class Welcome extends BaseWindows {
 
+    private String selectedLanguageCode = "es";
+
     /**
      * Creates new form Welcome
      */
     public Welcome() {
+        log("Welcome windows... init components");
         initComponents();
+        initUI();
     }
 
     @Override
     protected void initUI() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        welcome_cb.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                
+                switch(welcome_cb.getSelectedIndex()){
+                    case 0: {
+                        selectedLanguageCode = "en";
+                        log("language: " + selectedLanguageCode);
+                    }
+
+                    case 1: {
+                        selectedLanguageCode = "es";
+                        log("language: " + selectedLanguageCode);
+                    }
+                }
+                
+            }
+            
+        });
+        
     }
     
     /**
@@ -90,7 +119,9 @@ public class Welcome extends BaseWindows {
     }// </editor-fold>//GEN-END:initComponents
 
     private void welcome_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_welcome_btnActionPerformed
-        // TODO add your handling code here:
+        Menu menu = new Menu();
+        dispose();
+        menu.setVisible(true);
     }//GEN-LAST:event_welcome_btnActionPerformed
 
     /**
