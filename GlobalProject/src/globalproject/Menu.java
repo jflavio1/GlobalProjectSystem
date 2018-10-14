@@ -15,8 +15,6 @@ import java.util.ResourceBundle;
  */
 public class Menu extends BaseWindows {
     
-    private ResourceBundle strings;
-    
     /**
      * Creates new form Interface
      */
@@ -35,14 +33,6 @@ public class Menu extends BaseWindows {
         menu_btn_clients.setText(strings.getString("menu_btn_clients"));
         
     }
-    
-    @Override
-    protected void changeLanguage(String idioma){
-
-        Locale locale = new Locale("en");
-        strings = ResourceBundle.getBundle("globalproject.strings",locale);
-
-}
 
     /**
      * This method is called from within the constructor to initialize the form.
