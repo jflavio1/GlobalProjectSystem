@@ -34,7 +34,7 @@
                   <Component id="menu_btn_accounting" max="32767" attributes="0"/>
                   <Component id="menu_btn_services" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="110" max="32767" attributes="0"/>
+              <EmptySpace pref="114" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="menu_btn_employees" min="-2" max="-2" attributes="0"/>
                   <Component id="menu_btn_requests" min="-2" max="-2" attributes="0"/>
@@ -96,7 +96,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="menu_btn_accounting">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Contabilidad "/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="globalproject/strings.properties" key="menu_btn_accounting" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="menu_btn_requests">

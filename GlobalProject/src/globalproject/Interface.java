@@ -29,45 +29,16 @@ public class Interface extends javax.swing.JFrame {
     private void initUI(){
         
         menu_btn_products.setText(strings.getString("menu_btn_products"));
+        menu_btn_services.setText(strings.getString("menu_btn_services"));
+        menu_btn_employees.setText(strings.getString("menu_btn_employees"));
+        menu_btn_clients.setText(strings.getString("menu_btn_clients"));
         
     }
     
     private void cambiarIdioma(String idioma){
 
-        Locale locale = new Locale("es");
+        Locale locale = new Locale("en");
         strings = ResourceBundle.getBundle("globalproject.strings",locale);
-        
-/*        
-        switch(idioma){
-            
-            case "es": {
-                
-                Locale locale = new Locale("es", "PE");
-                strings = ResourceBundle.getBundle("globalproject.strings_es",locale);
-               
-            }
-            
-            default: {
-                Locale locale = new Locale("es");
-                strings = ResourceBundle.getBundle("globalproject.strings_es",locale);
-            }
-            
-        }*/
-        
-  
-
-    /*
-    cmbIdiomas.removeAllItems();
-
-    String idiomas[]={
-                      idioma.getProperty("espanol"),
-                      idioma.getProperty("ingles"),
-                      idioma.getProperty("frances")
-                      };
-
-    for(int i=0;i<idiomas.length;i++){
-        cmbIdiomas.addItem(idiomas[i]);
-    }*/
 
 }
 
@@ -103,7 +74,8 @@ public class Interface extends javax.swing.JFrame {
 
         menu_btn_clients.setText("Clientes");
 
-        menu_btn_accounting.setText("Contabilidad ");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("globalproject/strings"); // NOI18N
+        menu_btn_accounting.setText(bundle.getString("menu_btn_accounting")); // NOI18N
 
         menu_btn_requests.setText("Peticiones");
 
@@ -131,7 +103,7 @@ public class Interface extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(menu_btn_accounting, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(menu_btn_services, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(menu_btn_employees)
                     .addComponent(menu_btn_requests))
