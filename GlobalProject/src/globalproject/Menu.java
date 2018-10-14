@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
  *
  * @author alumno
  */
-public class Menu extends javax.swing.JFrame {
+public class Menu extends BaseWindows {
     
     private ResourceBundle strings;
     
@@ -22,11 +22,12 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
-        cambiarIdioma("es");
+        changeLanguage("es");
         initUI();
     }
     
-    private void initUI(){
+    @Override
+    protected void initUI(){
         
         menu_btn_products.setText(strings.getString("menu_btn_products"));
         menu_btn_services.setText(strings.getString("menu_btn_services"));
@@ -35,7 +36,8 @@ public class Menu extends javax.swing.JFrame {
         
     }
     
-    private void cambiarIdioma(String idioma){
+    @Override
+    protected void changeLanguage(String idioma){
 
         Locale locale = new Locale("en");
         strings = ResourceBundle.getBundle("globalproject.strings",locale);
