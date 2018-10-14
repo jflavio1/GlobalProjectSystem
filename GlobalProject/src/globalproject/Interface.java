@@ -5,18 +5,71 @@
  */
 package globalproject;
 
+import java.util.Locale;
+import java.util.Properties;
+import java.util.ResourceBundle;
+
 /**
  *
  * @author alumno
  */
 public class Interface extends javax.swing.JFrame {
-
+    
+    private ResourceBundle strings;
+    
     /**
      * Creates new form Interface
      */
     public Interface() {
         initComponents();
+        cambiarIdioma("es");
+        initUI();
     }
+    
+    private void initUI(){
+        
+        menu_btn_products.setText(strings.getString("menu_btn_products"));
+        
+    }
+    
+    private void cambiarIdioma(String idioma){
+
+        Locale locale = new Locale("es");
+        strings = ResourceBundle.getBundle("globalproject.strings",locale);
+        
+/*        
+        switch(idioma){
+            
+            case "es": {
+                
+                Locale locale = new Locale("es", "PE");
+                strings = ResourceBundle.getBundle("globalproject.strings_es",locale);
+               
+            }
+            
+            default: {
+                Locale locale = new Locale("es");
+                strings = ResourceBundle.getBundle("globalproject.strings_es",locale);
+            }
+            
+        }*/
+        
+  
+
+    /*
+    cmbIdiomas.removeAllItems();
+
+    String idiomas[]={
+                      idioma.getProperty("espanol"),
+                      idioma.getProperty("ingles"),
+                      idioma.getProperty("frances")
+                      };
+
+    for(int i=0;i<idiomas.length;i++){
+        cmbIdiomas.addItem(idiomas[i]);
+    }*/
+
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,7 +90,7 @@ public class Interface extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        menu_btn_products.setText("Productos");
+        menu_btn_products.setText("Products");
         menu_btn_products.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menu_btn_productsActionPerformed(evt);

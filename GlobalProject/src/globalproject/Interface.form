@@ -73,7 +73,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="menu_btn_products">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Productos"/>
+        <Property name="text" type="java.lang.String" value="Products"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_btn_productsActionPerformed"/>
