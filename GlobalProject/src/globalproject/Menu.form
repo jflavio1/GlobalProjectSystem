@@ -40,7 +40,7 @@
                           <Component id="menu_btn_services" min="-2" pref="110" max="-2" attributes="0"/>
                           <Component id="menu_btn_requests" min="-2" pref="110" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="menu_btn_employees" min="-2" max="-2" attributes="0"/>
                           <Component id="menu_btn_clients" min="-2" pref="117" max="-2" attributes="0"/>
@@ -50,8 +50,12 @@
                       <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
                       <Component id="menu_lbl_description" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
+                      <Component id="menu_btn_language" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="64" max="32767" attributes="0"/>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -62,19 +66,21 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="menu_lbl_description" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="40" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="menu_btn_products" alignment="1" max="32767" attributes="0"/>
                   <Component id="menu_btn_services" alignment="0" max="32767" attributes="0"/>
                   <Component id="menu_btn_employees" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="menu_btn_accounting" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="menu_btn_requests" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="menu_btn_clients" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <Component id="menu_btn_language" min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -151,6 +157,14 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Esoge el m&#xf3;dulo a consultar"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="menu_btn_language">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Escoger idioma"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menu_btn_languageActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

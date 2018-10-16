@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package globalproject;
 
 import java.awt.event.ActionEvent;
@@ -12,9 +7,9 @@ import java.awt.event.ItemListener;
 
 /**
  *
- * @author alumno
+ * @author Jose Flavio
  */
-public class Welcome extends BaseWindows {
+public final class Welcome extends BaseWindows {
 
     private String selectedLanguageCode = "es";
 
@@ -25,11 +20,6 @@ public class Welcome extends BaseWindows {
         log("Welcome windows... init components");
         initComponents();
         initUI();
-    }
-
-    @Override
-    protected void initUI() {
-        
         welcome_cb.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -38,17 +28,31 @@ public class Welcome extends BaseWindows {
                     case 0: {
                         selectedLanguageCode = "en";
                         log("language: " + selectedLanguageCode);
+                        changeLanguage(selectedLanguageCode);
+                        initUI();
+                        break;
                     }
 
                     case 1: {
                         selectedLanguageCode = "es";
                         log("language: " + selectedLanguageCode);
+                        changeLanguage(selectedLanguageCode);
+                        initUI();
+                        break;
                     }
                 }
                 
             }
             
         });
+    }
+
+    @Override
+    protected void initUI() {
+        
+      welcome_lbl_title.setText(strings.getString("welcome_lbl_title"));
+      welcome_lbl_desc.setText(strings.getString("welcome_lbl_description"));
+      welcome_btn.setText(strings.getString("welcome_btn_enter"));
         
     }
     
@@ -68,8 +72,11 @@ public class Welcome extends BaseWindows {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        welcome_lbl_title.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        welcome_lbl_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         welcome_lbl_title.setText("Bienvenido al sistema de StorageData");
 
+        welcome_lbl_desc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         welcome_lbl_desc.setText("Por favor, escoge tu idioma:");
 
         welcome_cb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "English", "Español" }));
@@ -88,31 +95,30 @@ public class Welcome extends BaseWindows {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(welcome_lbl_title)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(welcome_cb, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(welcome_lbl_desc)))))
+                        .addGap(205, 205, 205)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(welcome_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(welcome_cb, 0, 137, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(182, 182, 182)
-                        .addComponent(welcome_btn)))
-                .addContainerGap(146, Short.MAX_VALUE))
+                        .addGap(184, 184, 184)
+                        .addComponent(welcome_lbl_desc))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(welcome_lbl_title)))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(welcome_lbl_title)
-                .addGap(18, 18, 18)
-                .addComponent(welcome_lbl_desc)
                 .addGap(32, 32, 32)
-                .addComponent(welcome_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addComponent(welcome_btn)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addComponent(welcome_lbl_title)
+                .addGap(35, 35, 35)
+                .addComponent(welcome_lbl_desc)
+                .addGap(18, 18, 18)
+                .addComponent(welcome_cb, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(welcome_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
