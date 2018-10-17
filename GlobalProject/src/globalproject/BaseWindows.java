@@ -16,7 +16,7 @@ public abstract class BaseWindows extends javax.swing.JFrame {
 
     public BaseWindows() {
         this.strings = Language.getInstance().getStrings();
-        setWindowsTitle(this.strings.getString("app_title"));
+        //setWindowsTitle(this.strings.getString("app_title"));
     }
     
     protected void setWindowsTitle(String title){
@@ -28,8 +28,6 @@ public abstract class BaseWindows extends javax.swing.JFrame {
         super.setVisible(b); 
         setLocationRelativeTo(null);
     }
-    
-    
     
     protected void changeLanguage(String language){
         this.strings = Language.getInstance().setLanguage(language);

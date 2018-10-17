@@ -25,14 +25,13 @@ public class Language {
     
     public ResourceBundle setLanguage(String languageString){
         Locale locale = new Locale(languageString);
-        this.strings = ResourceBundle.getBundle("globalproject.strings",locale);
+        this.strings = ResourceBundle.getBundle("strings.strings",locale);
         return this.strings;
     }
     
     public ResourceBundle getStrings(){
         if(this.strings == null){
-            Locale locale = new Locale("en");
-            return ResourceBundle.getBundle("globalproject.strings",locale);
+            return ResourceBundle.getBundle("strings.strings", Locale.ENGLISH);
         } else {
             return this.strings;
         }
