@@ -1,5 +1,6 @@
-package globalproject;
+package globalproject.ui;
 
+import globalproject.BaseWindows;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.ResourceBundle;

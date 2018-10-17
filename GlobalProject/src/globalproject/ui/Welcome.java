@@ -1,5 +1,6 @@
-package globalproject;
+package globalproject.ui;
 
+import globalproject.BaseWindows;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;

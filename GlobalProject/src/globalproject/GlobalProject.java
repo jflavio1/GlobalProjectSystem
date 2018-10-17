@@ -1,16 +1,16 @@
 package globalproject;
 
+import globalproject.ui.Welcome;
+
 /**
  *
  * @author Jose Flavio
  */
 public class GlobalProject {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Welcome welcomeWindows = new Welcome();
+        welcomeWindows.setVisible(true);
     }
     
 }
