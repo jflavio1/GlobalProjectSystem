@@ -11,13 +11,14 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author alumno
+ * @author David Tejeda
+ * @author Jose Flavio
  */
 public class LoggedOut_Q {
     
-    public static void main(String[] args) {
-        JOptionPane.showOptionDialog(null, "¿Realmente Quieres Salir?", 
-                "Cerrar Sesión", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,new Object[] { "SI", "NO" },"NO");
+    public static int showDialog(String title, String btnText, String yes, String no){
+        return JOptionPane.showOptionDialog(null, title, 
+                btnText, JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,new Object[] { yes, no },no);
     }
     
 }
