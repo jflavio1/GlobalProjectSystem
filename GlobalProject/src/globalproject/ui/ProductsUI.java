@@ -5,12 +5,25 @@
  */
 package globalproject.ui;
 
+import globalproject.domain.ProductsRepository;
+
 /**
  *
  * @author alumno
  */
 public class ProductsUI extends javax.swing.JPanel {
 
+   
+    private ProductsRepository repository;
+
+    public void setRepository(ProductsRepository repository) {
+        this.repository = repository;
+    }
+    
+    
+    
+    
+    
     /**
      * Creates new form ProductsUI
      */
