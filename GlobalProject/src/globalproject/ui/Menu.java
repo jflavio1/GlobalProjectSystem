@@ -1,6 +1,8 @@
 package globalproject.ui;
 
 import globalproject.BaseWindows;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.ResourceBundle;
@@ -29,6 +31,23 @@ public final class Menu extends BaseWindows {
         menu_btn_accounting.setText(strings.getString("menu_btn_accounting"));
         menu_btn_requests.setText(strings.getString("menu_btn_requests"));
         menu_btn_language.setText(strings.getString("menu_btn_changeLan"));
+        
+        // TODO: set text to login info label and btn login
+        // TODO: Do all others GUI windows on the package 'ui'
+        
+        // set login info label visible as false because first user must be logged in system
+        menu_lbl_logininfo.setVisible(false);
+        
+        menu_btn_login.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                // when login btn is clicked we verify if user is logged
+                // if user is logged we logged out and change btn text: Login!
+                // if user is not logged and login is successful, change btn text to: Logout!
+                
+            }
+        });
         
     }
 
