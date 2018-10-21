@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package globalproject.ui;
 
+import globalproject.BaseWindows;
 import globalproject.BaseWindows;
 import globalproject.data.LoginHelper;
 import globalproject.data.callback.ResponseCallback;
@@ -12,26 +8,16 @@ import globalproject.domain.User;
 
 /**
  *
- * @author Sergio
  * @author Jose Flavio
  */
-public class LoginUI extends BaseWindows {
+public class LoginWindows extends BaseWindows {
 
     /**
-     * Creates new form Session
+     * Creates new form LoginWindows
      */
-    public LoginUI() {
+    public LoginWindows() {
         initComponents();
         initUI();
-    }
-    
-    @Override
-    protected void initUI() {
-        login_lbl_username.setText(strings.getString("login_lbl_username"));
-        login_lbl_password.setText(strings.getString("login_lbl_password"));
-        login_btn_login.setText(strings.getString("login_btn_login"));
-        
-        login_lbl_error.setVisible(false);
     }
 
     /**
@@ -43,30 +29,30 @@ public class LoginUI extends BaseWindows {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        login_lbl_username = new javax.swing.JLabel();
-        login_lbl_password = new javax.swing.JLabel();
-        login_et_username = new javax.swing.JTextField();
-        login_btn_login = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        login_lbl_username = new javax.swing.JLabel();
+        login_et_username = new javax.swing.JTextField();
         login_et_password = new javax.swing.JPasswordField();
+        login_btn_login = new javax.swing.JButton();
         login_lbl_error = new javax.swing.JLabel();
+        login_lbl_password = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel3.setFont(new java.awt.Font("Arial Black", 2, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel3.setText("         StorageData System");
 
         login_lbl_username.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         login_lbl_username.setText("Username");
-
-        login_lbl_password.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        login_lbl_password.setText("Password");
-        login_lbl_password.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                login_lbl_passwordFocusGained(evt);
-            }
-        });
 
         login_et_username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 login_et_usernameActionPerformed(evt);
             }
         });
+
+        login_et_password.setText("jPasswordField1");
 
         login_btn_login.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         login_btn_login.setText("Login");
@@ -76,42 +62,45 @@ public class LoginUI extends BaseWindows {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Arial Black", 2, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 0, 51));
-        jLabel3.setText("         StorageData System");
-
-        login_et_password.setText("jPasswordField1");
-
+        login_lbl_error.setForeground(new java.awt.Color(255, 0, 51));
         login_lbl_error.setText("jLabel1");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        login_lbl_password.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        login_lbl_password.setText("Password");
+        login_lbl_password.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                login_lbl_passwordFocusGained(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(login_lbl_error, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(19, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(login_lbl_username, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(login_lbl_password, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(login_et_username)
-                                    .addComponent(login_et_password, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(login_btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(160, 160, 160))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(login_lbl_username, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(login_lbl_password, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(login_et_username)
+                                        .addComponent(login_et_password, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(login_btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(148, 148, 148)))
+                .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,18 +115,24 @@ public class LoginUI extends BaseWindows {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(login_lbl_password)
                     .addComponent(login_et_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(login_lbl_error)
                 .addGap(18, 18, 18)
                 .addComponent(login_btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void login_et_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_et_usernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_login_et_usernameActionPerformed
 
     private void login_btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btn_loginActionPerformed
         String username = login_et_username.getText();
         String password = String.valueOf(login_et_password.getPassword());
-        
+
         LoginHelper.login(username, password, new ResponseCallback<User>() {
             @Override
             public void onSuccess(User obj) {
@@ -150,16 +145,13 @@ public class LoginUI extends BaseWindows {
             @Override
             public void onFailure(int errorCode) {
                 login_lbl_error.setVisible(true);
+                login_lbl_error.setText(String.valueOf(errorCode));
                 login_et_username.setText("");
                 login_et_password.setText("");
             }
         });
-        
-    }//GEN-LAST:event_login_btn_loginActionPerformed
 
-    private void login_et_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_et_usernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_login_et_usernameActionPerformed
+    }//GEN-LAST:event_login_btn_loginActionPerformed
 
     private void login_lbl_passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_login_lbl_passwordFocusGained
         // TODO add your handling code here:
@@ -182,21 +174,20 @@ public class LoginUI extends BaseWindows {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginWindows.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginWindows.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginWindows.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginWindows.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginUI().setVisible(true);
+                new LoginWindows().setVisible(true);
             }
         });
     }
@@ -211,4 +202,14 @@ public class LoginUI extends BaseWindows {
     private javax.swing.JLabel login_lbl_username;
     // End of variables declaration//GEN-END:variables
 
+    @Override
+    protected void initUI() {
+        login_lbl_username.setText(strings.getString("login_lbl_username"));
+        login_lbl_password.setText(strings.getString("login_lbl_password"));
+        login_btn_login.setText(strings.getString("login_btn_login"));
+        
+        login_et_username.setText("");
+        login_et_password.setText("");
+        login_lbl_error.setVisible(false);
+    }
 }

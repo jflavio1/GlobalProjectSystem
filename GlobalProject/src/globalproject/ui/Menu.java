@@ -42,13 +42,13 @@ public final class Menu extends BaseWindows {
             @Override
             public void actionPerformed(ActionEvent e) {
                 
-                String logoutTitle = strings.getString("logout_title");
+                String logoutTitle = strings.getString("logout_titlte");
                 String logoutQuestion = strings.getString("logout_lbl_question");
-                String yes = strings.getString("yes");
-                String no = strings.getString("no");
+                String yes = strings.getString("logout_btn_yes");
+                String no = strings.getString("logout_btn_no");
                 
                 if (Session.getCurrentSession().isLogged()) {
-                    if(LoggedOut_Q.showDialog(logoutTitle, logoutQuestion, yes, no) ==
+                    if(LoggedOut_Q.showDialog(Menu.this, logoutTitle, logoutQuestion, yes, no) ==
                             JOptionPane.YES_OPTION){
                         runLogout();
                     }
@@ -70,15 +70,15 @@ public final class Menu extends BaseWindows {
     }
     
     public void setLogedUi(){
-        menu_btn_login.setText(strings.getString("menu_btn_login"));
-        menu_lbl_logininfo.setVisible(false);
-    }
-    
-    public void setLogoutUi(){
         menu_btn_login.setText(strings.getString("menu_btn_logout"));
         String welcome = strings.getString("menu_lbl_usrwel") + Session.getCurrentSession().getLoggedUser().getUserFormalName();
         menu_lbl_logininfo.setVisible(true);
         menu_lbl_logininfo.setText(welcome);
+    }
+    
+    public void setLogoutUi(){
+        menu_btn_login.setText(strings.getString("menu_btn_login"));
+        menu_lbl_logininfo.setVisible(false);
     }
     
     private void runLogout(){
@@ -87,7 +87,7 @@ public final class Menu extends BaseWindows {
     }
     
     private void runLogin(){
-        LoginUI loginUI = new LoginUI();
+        LoginWindows loginUI = new LoginWindows();
         dispose();
         loginUI.setVisible(true);
     }

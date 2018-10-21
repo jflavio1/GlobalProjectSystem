@@ -6,6 +6,7 @@
 package globalproject.ui;
 
 
+import java.awt.Component;
 import javax.swing.JOptionPane;
 
 
@@ -16,8 +17,8 @@ import javax.swing.JOptionPane;
  */
 public class LoggedOut_Q {
     
-    public static int showDialog(String title, String btnText, String yes, String no){
-        return JOptionPane.showOptionDialog(null, title, 
+    public static int showDialog(Component component, String title, String btnText, String yes, String no){
+        return JOptionPane.showOptionDialog(component, title, 
                 btnText, JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,new Object[] { yes, no },no);
     }
     
