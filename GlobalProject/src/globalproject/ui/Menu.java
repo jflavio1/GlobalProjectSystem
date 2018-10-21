@@ -2,11 +2,13 @@ package globalproject.ui;
 
 import globalproject.BaseWindows;
 import globalproject.data.ProductsRepositoryImpl;
+import globalproject.data.Session;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.ResourceBundle;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -44,18 +46,42 @@ public final class Menu extends BaseWindows {
             @Override
             public void actionPerformed(ActionEvent e) {
                 
+                String logoutTitle = strings.getString("logout_title");
+                String logoutQuestion = strings.getString("logout_lbl_question");
+                String yes = strings.getString("yes");
+                String no = strings.getString("no");
                 
-                // when login btn is clicked we verify if user is logged
-                // if user is logged we logged out and change btn text: Login!
-                // if user is not logged and login is successful, change btn text to: Logout!
-                if (globalproject.data.Session.getCurrentSession().isLogged()) {
-                    
+                if (Session.getCurrentSession().isLogged()) {
+                    if(LoggedOut_Q.showDialog(logoutTitle, logoutQuestion, yes, no) ==
+                            JOptionPane.YES_OPTION){
+                        runLogout();
+                    }
+                } else {
+                    runLogin();
                 }
                 
                 
             }
         });
         
+    }
+    
+    public void setLogedUi(){
+        
+    }
+    
+    public void setLogoutUi(){
+        
+    }
+    
+    private void runLogout(){
+        Session.getCurrentSession().logout();
+    }
+    
+    private void runLogin(){
+        LoginUI loginUI = new LoginUI();
+        dispose();
+        loginUI.setVisible(true);
     }
 
     /**
