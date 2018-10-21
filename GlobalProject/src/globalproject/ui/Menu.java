@@ -35,14 +35,8 @@ public final class Menu extends BaseWindows {
         menu_btn_accounting.setText(strings.getString("menu_btn_accounting"));
         menu_btn_requests.setText(strings.getString("menu_btn_requests"));
         menu_btn_language.setText(strings.getString("menu_btn_changeLan"));
-        
-        // TODO: set text to login info label and btn login
-        // TODO: Do all others GUI windows on the package 'ui'
-        
-        menu_btn_login.setText(strings.getString("menu_btn_login"));
-        
-        // set login info label visible as false because first user must be logged in system
-        menu_lbl_logininfo.setVisible(false);
+
+        checkLogin();
         
         menu_btn_login.addActionListener(new ActionListener() {
             @Override
@@ -61,11 +55,18 @@ public final class Menu extends BaseWindows {
                 } else {
                     runLogin();
                 }
-                
-                
+
             }
         });
         
+    }
+    
+    private void checkLogin(){
+        if (Session.getCurrentSession().isLogged()) {
+            setLogedUi();
+        } else {
+            setLogoutUi();
+        }
     }
     
     public void setLogedUi(){
@@ -82,6 +83,7 @@ public final class Menu extends BaseWindows {
     
     private void runLogout(){
         Session.getCurrentSession().logout();
+        setLogoutUi();
     }
     
     private void runLogin(){
