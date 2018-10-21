@@ -102,8 +102,5 @@ public class ClientsUI extends BaseWindows {
     private javax.swing.JTextArea productsui_lbl_list;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    protected void initUI() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }
