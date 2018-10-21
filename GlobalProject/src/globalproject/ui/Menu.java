@@ -196,7 +196,6 @@ public final class Menu extends BaseWindows {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menu_btn_productsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_productsActionPerformed
-        // TODO add your handling code here:
         ProductsUI productsui = new ProductsUI();
         dispose();
         productsui.setVisible(true);
