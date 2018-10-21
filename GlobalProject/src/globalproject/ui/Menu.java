@@ -7,6 +7,7 @@ import java.util.Locale;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
+
 /**
  *
  * @author Jose Flavio
@@ -42,9 +43,14 @@ public final class Menu extends BaseWindows {
             @Override
             public void actionPerformed(ActionEvent e) {
                 
+                
                 // when login btn is clicked we verify if user is logged
                 // if user is logged we logged out and change btn text: Login!
                 // if user is not logged and login is successful, change btn text to: Logout!
+                if (globalproject.data.Session.getCurrentSession().isLogged()) {
+                    
+                }
+                
                 
             }
         });
@@ -113,6 +119,11 @@ public final class Menu extends BaseWindows {
         });
 
         menu_btn_login.setText("Login");
+        menu_btn_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_btn_loginActionPerformed(evt);
+            }
+        });
 
         menu_lbl_logininfo.setText("Bienvenido: Coca Cola");
 
@@ -139,7 +150,7 @@ public final class Menu extends BaseWindows {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addGap(40, 40, 40)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(menu_btn_accounting, javax.swing.GroupLayout.PREFERRED_SIZE, 140, Short.MAX_VALUE)
+                                .addComponent(menu_btn_accounting, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                                 .addComponent(menu_btn_products, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(72, 72, 72)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,6 +204,10 @@ public final class Menu extends BaseWindows {
         dispose();
         welcome.setVisible(true);
     }//GEN-LAST:event_menu_btn_languageActionPerformed
+
+    private void menu_btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_loginActionPerformed
+             // TODO add your handling code here:
+    }//GEN-LAST:event_menu_btn_loginActionPerformed
 
     /**
      * @param args the command line arguments
