@@ -1,6 +1,7 @@
 package globalproject.ui;
 
 import globalproject.BaseWindows;
+import globalproject.data.ProductsRepositoryImpl;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Locale;
@@ -196,9 +197,11 @@ public final class Menu extends BaseWindows {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menu_btn_productsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_productsActionPerformed
-        ProductsUI productsui = new ProductsUI();
+        ProductsUi productsui = new ProductsUi();
+        productsui.setRepository(new ProductsRepositoryImpl());
         dispose();
         productsui.setVisible(true);
+        productsui.initUI();
     }//GEN-LAST:event_menu_btn_productsActionPerformed
 
     private void menu_btn_languageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_languageActionPerformed
