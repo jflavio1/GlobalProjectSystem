@@ -39,6 +39,8 @@ public final class Menu extends BaseWindows {
         // TODO: set text to login info label and btn login
         // TODO: Do all others GUI windows on the package 'ui'
         
+        menu_btn_login.setText(strings.getString("menu_btn_login"));
+        
         // set login info label visible as false because first user must be logged in system
         menu_lbl_logininfo.setVisible(false);
         
@@ -67,11 +69,15 @@ public final class Menu extends BaseWindows {
     }
     
     public void setLogedUi(){
-        
+        menu_btn_login.setText(strings.getString("menu_btn_login"));
+        menu_lbl_logininfo.setVisible(false);
     }
     
     public void setLogoutUi(){
-        
+        menu_btn_login.setText(strings.getString("menu_btn_logout"));
+        String welcome = strings.getString("menu_lbl_usrwel") + Session.getCurrentSession().getLoggedUser().getUserFormalName();
+        menu_lbl_logininfo.setVisible(true);
+        menu_lbl_logininfo.setText(welcome);
     }
     
     private void runLogout(){
