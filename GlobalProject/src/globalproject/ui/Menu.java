@@ -282,27 +282,27 @@ public final class Menu extends BaseWindows {
 
     private void menu_btn_accountingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_accountingActionPerformed
         if(!Session.getCurrentSession().isLogged()){
-            WarningMessageUi.showDialog(this, strings.getString("menu_dialog_loginfirst_title"), 
-            strings.getString("menu_dialog_loginfirst_description"));
+            JOptionPane.showMessageDialog(this, strings.getString("menu_dialog_loginfirst_description"),
+                    strings.getString("menu_dialog_loginfirst_title"), JOptionPane.WARNING_MESSAGE);
         } else if (LoginHelper.userHasModulePermission(ModuleConstants.MODULE_ACCOUNTING)){
             AccoutingUi accoutingUi = new AccoutingUi();
             dispose();
             accoutingUi.setVisible(true);
         } else {
-            WarningMessageUi.showDialog(this, strings.getString("menu_dialog_error_permission_title"), 
-            strings.getString("menu_dialog_error_permission_description"));
+            JOptionPane.showMessageDialog(this, strings.getString("menu_dialog_error_permission_description"),
+                    strings.getString("menu_dialog_error_permission_title"), JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_menu_btn_accountingActionPerformed
 
     private void menu_btn_employeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_employeesActionPerformed
         if(!Session.getCurrentSession().isLogged()){
-            WarningMessageUi.showDialog(this, strings.getString("menu_dialog_loginfirst_title"), 
-            strings.getString("menu_dialog_loginfirst_description"));
+            JOptionPane.showMessageDialog(this, strings.getString("menu_dialog_loginfirst_description"),
+                    strings.getString("menu_dialog_loginfirst_title"), JOptionPane.WARNING_MESSAGE);
         } else if (LoginHelper.userHasModulePermission(ModuleConstants.MODULE_EMPLOYEES)){
             // todo open employee module
         } else {
-            WarningMessageUi.showDialog(this, strings.getString("menu_dialog_error_permission_title"), 
-            strings.getString("menu_dialog_error_permission_description"));
+            JOptionPane.showMessageDialog(this, strings.getString("menu_dialog_error_permission_description"),
+                    strings.getString("menu_dialog_error_permission_title"), JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_menu_btn_employeesActionPerformed
 
