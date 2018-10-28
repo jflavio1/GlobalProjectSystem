@@ -249,8 +249,9 @@ public final class Menu extends BaseWindows {
 
     private void menu_btn_productsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_productsActionPerformed
         if(!Session.getCurrentSession().isLogged()){
-            WarningMessageUi.showDialog(this, strings.getString("menu_dialog_loginfirst_title"), 
-            strings.getString("menu_dialog_loginfirst_description"));
+            JOptionPane.showMessageDialog(this, 
+            strings.getString("menu_dialog_loginfirst_description"),
+            strings.getString("menu_dialog_loginfirst_title"), JOptionPane.WARNING_MESSAGE);
         } else if (LoginHelper.userHasModulePermission(ModuleConstants.MODULE_PRODUCTS)){
             ProductsUi productsui = new ProductsUi();
             productsui.setRepository(new ProductsRepositoryImpl());
@@ -258,8 +259,9 @@ public final class Menu extends BaseWindows {
             productsui.setVisible(true);
             productsui.initUI();
         } else {
-            WarningMessageUi.showDialog(this, strings.getString("menu_dialog_error_permission_title"), 
-            strings.getString("menu_dialog_error_permission_description"));
+            JOptionPane.showMessageDialog(this, 
+            strings.getString("menu_dialog_error_permission_description"),
+            strings.getString("menu_dialog_error_permission_title"), JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_menu_btn_productsActionPerformed
 
