@@ -45,9 +45,9 @@ public class ClientsUi extends BaseModuleWindows {
         
         StringBuilder sb = new StringBuilder();
         
-        String empCodeTitle = "Cod Employee";
-        String empNameTitle = "Employee Name";
-        String empAgeTitle = "Employe Age";
+        String empCodeTitle = "Cod Cliente";
+        String empNameTitle = "Cliente Name";
+        String empAgeTitle = "cliente Age";
         sb.append(empCodeTitle+"\t\t" + empNameTitle +"\t" + empAgeTitle  +"\r\n");
         
         for (int i = 0; i < lista.size(); i++) {

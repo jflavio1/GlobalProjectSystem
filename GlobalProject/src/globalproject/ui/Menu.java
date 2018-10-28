@@ -277,7 +277,17 @@ public final class Menu extends BaseWindows {
     }//GEN-LAST:event_menu_btn_loginActionPerformed
 
     private void menu_btn_clientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_clientsActionPerformed
-       
+       if(!Session.getCurrentSession().isLogged()){
+            JOptionPane.showMessageDialog(this, strings.getString("menu_dialog_loginfirst_description"),
+                    strings.getString("menu_dialog_loginfirst_title"), JOptionPane.WARNING_MESSAGE);
+        } else if (LoginHelper.userHasModulePermission(ModuleConstants.MODULE_CLIENTS)){
+            ClientsUi clientsUi = new ClientsUi();
+            dispose();
+            clientsUi.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, strings.getString("menu_dialog_error_permission_description"),
+                    strings.getString("menu_dialog_error_permission_title"), JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_menu_btn_clientsActionPerformed
 
     private void menu_btn_accountingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_accountingActionPerformed

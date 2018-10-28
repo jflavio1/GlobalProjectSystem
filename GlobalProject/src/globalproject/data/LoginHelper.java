@@ -1,6 +1,5 @@
 package globalproject.data;
 
-import com.sun.org.apache.xml.internal.dtm.ref.DTMManagerDefault;
 import globalproject.ModuleConstants;
 import globalproject.data.callback.ResponseCallback;
 import globalproject.domain.User;
@@ -91,6 +90,17 @@ public final class LoginHelper {
                     default: return false;
                     
                 }
+            }
+            
+            case ModuleConstants.MODULE_CLIENTS:{
+                
+                switch(Session.getCurrentSession().getLoggedUser().getUserName()){
+                     
+                    case "storagedata": return true;
+                    default: return false;
+                    
+                }
+
             }
             
             case ModuleConstants.MODULE_EMPLOYEES:{
