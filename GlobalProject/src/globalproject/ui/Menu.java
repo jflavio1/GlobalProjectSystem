@@ -132,10 +132,20 @@ public final class Menu extends BaseWindows {
 
         menu_btn_employees.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         menu_btn_employees.setText("Empleados");
+        menu_btn_employees.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_btn_employeesActionPerformed(evt);
+            }
+        });
 
         menu_btn_accounting.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         menu_btn_accounting.setText("Contabilidad");
         menu_btn_accounting.setFocusable(false);
+        menu_btn_accounting.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_btn_accountingActionPerformed(evt);
+            }
+        });
 
         menu_btn_requests.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         menu_btn_requests.setText("Peticiones");
@@ -269,6 +279,30 @@ public final class Menu extends BaseWindows {
         dispose();
         clientsUI.setVisible(true);
     }//GEN-LAST:event_menu_btn_clientsActionPerformed
+
+    private void menu_btn_accountingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_accountingActionPerformed
+        if(!Session.getCurrentSession().isLogged()){
+            WarningMessageUi.showDialog(this, strings.getString("menu_dialog_loginfirst_title"), 
+            strings.getString("menu_dialog_loginfirst_description"));
+        } else if (LoginHelper.userHasModulePermission(ModuleConstants.MODULE_ACCOUNTING)){
+            // todo open accounting module
+        } else {
+            WarningMessageUi.showDialog(this, strings.getString("menu_dialog_error_permission_title"), 
+            strings.getString("menu_dialog_error_permission_description"));
+        }
+    }//GEN-LAST:event_menu_btn_accountingActionPerformed
+
+    private void menu_btn_employeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_employeesActionPerformed
+        if(!Session.getCurrentSession().isLogged()){
+            WarningMessageUi.showDialog(this, strings.getString("menu_dialog_loginfirst_title"), 
+            strings.getString("menu_dialog_loginfirst_description"));
+        } else if (LoginHelper.userHasModulePermission(ModuleConstants.MODULE_EMPLOYEES)){
+            // todo open employee module
+        } else {
+            WarningMessageUi.showDialog(this, strings.getString("menu_dialog_error_permission_title"), 
+            strings.getString("menu_dialog_error_permission_description"));
+        }
+    }//GEN-LAST:event_menu_btn_employeesActionPerformed
 
     /**
      * @param args the command line arguments
