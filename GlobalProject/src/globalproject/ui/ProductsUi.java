@@ -6,16 +6,18 @@
 
 package globalproject.ui;
 
+import globalproject.BaseModuleWindows;
 import globalproject.BaseWindows;
 import globalproject.domain.Product;
 import globalproject.domain.ProductsRepository;
 import java.util.ArrayList;
+import javax.swing.JButton;
 
 /**
  *
  * @author joseflavio
  */
-public class ProductsUi extends BaseWindows {
+public class ProductsUi extends BaseModuleWindows {
 
     private ProductsRepository repository;
    
@@ -24,10 +26,14 @@ public class ProductsUi extends BaseWindows {
      */
     public ProductsUi() {
         initComponents();
+        runBackButton();
     }
     
     @Override
     protected void initUI() {
+        
+        producstui_lbl_title.setText(strings.getString("products_lbl_title"));
+        
         ArrayList<Product> lista = (ArrayList<Product>) this.repository.getAll();
         
         StringBuilder sb = new StringBuilder();
@@ -66,8 +72,14 @@ public class ProductsUi extends BaseWindows {
         producstui_lbl_title = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         productsui_lbl_list = new javax.swing.JTextArea();
+        productsui_btn_back = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         producstui_lbl_title.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         producstui_lbl_title.setText("Productos");
@@ -76,6 +88,8 @@ public class ProductsUi extends BaseWindows {
         productsui_lbl_list.setRows(5);
         jScrollPane1.setViewportView(productsui_lbl_list);
 
+        productsui_btn_back.setText(".......");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,18 +97,22 @@ public class ProductsUi extends BaseWindows {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
+                        .addGap(81, 81, 81)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(255, 255, 255)
+                        .addContainerGap()
+                        .addComponent(productsui_btn_back)
+                        .addGap(152, 152, 152)
                         .addComponent(producstui_lbl_title)))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(producstui_lbl_title)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(producstui_lbl_title)
+                    .addComponent(productsui_btn_back))
                 .addGap(34, 34, 34)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(63, Short.MAX_VALUE))
@@ -102,6 +120,11 @@ public class ProductsUi extends BaseWindows {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        Menu menu = new Menu();
+        menu.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
@@ -141,7 +164,13 @@ public class ProductsUi extends BaseWindows {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel producstui_lbl_title;
+    private javax.swing.JButton productsui_btn_back;
     private javax.swing.JTextArea productsui_lbl_list;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public JButton getBackButton() {
+        return productsui_btn_back;
+    }
 
 }

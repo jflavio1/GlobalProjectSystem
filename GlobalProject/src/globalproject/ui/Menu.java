@@ -35,6 +35,8 @@ public final class Menu extends BaseWindows {
         menu_btn_accounting.setText(strings.getString("menu_btn_accounting"));
         menu_btn_requests.setText(strings.getString("menu_btn_requests"));
         menu_btn_language.setText(strings.getString("menu_btn_changeLan"));
+        menu_lbl_description.setText(strings.getString("menu_lbl_description"));
+        menu_btn_language.setText(strings.getString("menu_btn_changeLan"));
 
         checkLogin();
         
@@ -142,6 +144,11 @@ public final class Menu extends BaseWindows {
 
         menu_btn_clients.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         menu_btn_clients.setText("Clientes");
+        menu_btn_clients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_btn_clientsActionPerformed(evt);
+            }
+        });
 
         menu_lbl_description.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         menu_lbl_description.setText("Esoge el módulo a consultar");
@@ -168,9 +175,6 @@ public final class Menu extends BaseWindows {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addComponent(menu_lbl_description))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addContainerGap()
@@ -185,7 +189,7 @@ public final class Menu extends BaseWindows {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addGap(40, 40, 40)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(menu_btn_accounting, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                                .addComponent(menu_btn_accounting, javax.swing.GroupLayout.PREFERRED_SIZE, 140, Short.MAX_VALUE)
                                 .addComponent(menu_btn_products, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(72, 72, 72)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +199,10 @@ public final class Menu extends BaseWindows {
                             .addGap(96, 96, 96)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(menu_btn_employees, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(menu_btn_clients, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(menu_btn_clients, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(211, 211, 211)
+                        .addComponent(menu_lbl_description)))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -203,16 +210,14 @@ public final class Menu extends BaseWindows {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(menu_btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50))
+                    .addComponent(menu_btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(menu_lbl_logininfo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(menu_lbl_description)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(menu_btn_products, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(menu_btn_services, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -240,6 +245,7 @@ public final class Menu extends BaseWindows {
 
     private void menu_btn_languageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_languageActionPerformed
         Welcome welcome = new Welcome();
+        this.setVisible(false);
         dispose();
         welcome.setVisible(true);
     }//GEN-LAST:event_menu_btn_languageActionPerformed
@@ -247,6 +253,12 @@ public final class Menu extends BaseWindows {
     private void menu_btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_loginActionPerformed
              // TODO add your handling code here:
     }//GEN-LAST:event_menu_btn_loginActionPerformed
+
+    private void menu_btn_clientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_clientsActionPerformed
+        ClientsUI clientsUI = new ClientsUI();
+        dispose();
+        clientsUI.setVisible(true);
+    }//GEN-LAST:event_menu_btn_clientsActionPerformed
 
     /**
      * @param args the command line arguments

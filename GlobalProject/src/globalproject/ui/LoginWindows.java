@@ -1,16 +1,18 @@
 package globalproject.ui;
 
+import globalproject.BaseModuleWindows;
 import globalproject.BaseWindows;
 import globalproject.BaseWindows;
 import globalproject.data.LoginHelper;
 import globalproject.data.callback.ResponseCallback;
 import globalproject.domain.User;
+import javax.swing.JButton;
 
 /**
  *
  * @author Jose Flavio
  */
-public class LoginWindows extends BaseWindows {
+public class LoginWindows extends BaseModuleWindows {
 
     /**
      * Creates new form LoginWindows
@@ -137,9 +139,7 @@ public class LoginWindows extends BaseWindows {
             @Override
             public void onSuccess(User obj) {
                 login_btn_login.setVisible(false);
-                Menu menu = new Menu();
-                menu.dispose();
-                menu.setVisible(true);
+                backToMenu();
             }
 
             @Override
@@ -211,5 +211,10 @@ public class LoginWindows extends BaseWindows {
         login_et_username.setText("");
         login_et_password.setText("");
         login_lbl_error.setVisible(false);
+    }
+
+    @Override
+    public JButton getBackButton() {
+        return null;
     }
 }
