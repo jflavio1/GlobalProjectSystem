@@ -30,6 +30,7 @@ public class EmployeesUi extends BaseModuleWindows {
     public EmployeesUi() {
         initComponents();
         runBackButton();
+        initUI();
     }
     
     @Override
@@ -45,7 +46,7 @@ public class EmployeesUi extends BaseModuleWindows {
         String empNameTitle = "Employee Name";
         String empAgeTitle = "Employe Age";
         String empEspecTitle = "Employe specialty";
-        sb.append(empCodeTitle+"\t\t" + empNameTitle +"\t\t" + empAgeTitle +"\t\t" + empEspecTitle +"\r\n");
+        sb.append(empCodeTitle+"\t\t" + empNameTitle +"\t" + empEspecTitle +"\t" + empAgeTitle  +"\r\n");
         
         for (int i = 0; i < lista.size(); i++) {
             
@@ -54,7 +55,7 @@ public class EmployeesUi extends BaseModuleWindows {
             String empAge = lista.get(i).getEmpEdad();
             String empEspc = lista.get(i).getEmpEspecialidad();
             
-            sb.append(empCode+"\t\t" + empName +"\t\t" + empAge+ "\t\t" + empEspc+"\r\n");
+            sb.append(empCode+"\t\t" + empName +"\t\t" + empEspc + "\t\t" + empAge +"\r\n");
             sb.append("\r\n");
         }
         productsui_lbl_list.setText(sb.toString());
@@ -87,7 +88,7 @@ public class EmployeesUi extends BaseModuleWindows {
         });
 
         employeesui_lbl_title.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        employeesui_lbl_title.setText("Productos");
+        employeesui_lbl_title.setText("Employees Module");
 
         productsui_lbl_list.setColumns(20);
         productsui_lbl_list.setRows(5);
@@ -102,25 +103,29 @@ public class EmployeesUi extends BaseModuleWindows {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(productsui_btn_back)
-                        .addGap(152, 152, 152)
-                        .addComponent(employeesui_lbl_title)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                        .addGap(211, 211, 211)
+                        .addComponent(employeesui_lbl_title))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(employeesui_lbl_title)
-                    .addComponent(productsui_btn_back))
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(productsui_btn_back)
+                        .addGap(35, 35, 35))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(employeesui_lbl_title)
+                        .addGap(26, 26, 26)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();

@@ -301,7 +301,9 @@ public final class Menu extends BaseWindows {
             JOptionPane.showMessageDialog(this, strings.getString("menu_dialog_loginfirst_description"),
                     strings.getString("menu_dialog_loginfirst_title"), JOptionPane.WARNING_MESSAGE);
         } else if (LoginHelper.userHasModulePermission(ModuleConstants.MODULE_EMPLOYEES)){
-            // todo open employee module
+            EmployeesUi ui = new EmployeesUi();
+            dispose();
+            ui.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, strings.getString("menu_dialog_error_permission_description"),
                     strings.getString("menu_dialog_error_permission_title"), JOptionPane.WARNING_MESSAGE);
