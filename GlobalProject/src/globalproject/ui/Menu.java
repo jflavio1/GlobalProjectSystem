@@ -277,9 +277,7 @@ public final class Menu extends BaseWindows {
     }//GEN-LAST:event_menu_btn_loginActionPerformed
 
     private void menu_btn_clientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_clientsActionPerformed
-        ClientsUI clientsUI = new ClientsUI();
-        dispose();
-        clientsUI.setVisible(true);
+       
     }//GEN-LAST:event_menu_btn_clientsActionPerformed
 
     private void menu_btn_accountingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_accountingActionPerformed
