@@ -285,7 +285,9 @@ public final class Menu extends BaseWindows {
             WarningMessageUi.showDialog(this, strings.getString("menu_dialog_loginfirst_title"), 
             strings.getString("menu_dialog_loginfirst_description"));
         } else if (LoginHelper.userHasModulePermission(ModuleConstants.MODULE_ACCOUNTING)){
-            // todo open accounting module
+            AccoutingUi accoutingUi = new AccoutingUi();
+            dispose();
+            accoutingUi.setVisible(true);
         } else {
             WarningMessageUi.showDialog(this, strings.getString("menu_dialog_error_permission_title"), 
             strings.getString("menu_dialog_error_permission_description"));
