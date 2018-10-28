@@ -1,6 +1,8 @@
 package globalproject.ui;
 
 import globalproject.BaseWindows;
+import globalproject.ModuleConstants;
+import globalproject.data.LoginHelper;
 import globalproject.data.ProductsRepositoryImpl;
 import globalproject.data.Session;
 import java.awt.event.ActionEvent;
@@ -236,11 +238,19 @@ public final class Menu extends BaseWindows {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menu_btn_productsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_productsActionPerformed
-        ProductsUi productsui = new ProductsUi();
-        productsui.setRepository(new ProductsRepositoryImpl());
-        dispose();
-        productsui.setVisible(true);
-        productsui.initUI();
+        if(!Session.getCurrentSession().isLogged()){
+            WarningMessageUi.showDialog(this, strings.getString("menu_dialog_loginfirst_title"), 
+            strings.getString("menu_dialog_loginfirst_description"));
+        } else if (LoginHelper.userHasModulePermission(ModuleConstants.MODULE_PRODUCTS)){
+            ProductsUi productsui = new ProductsUi();
+            productsui.setRepository(new ProductsRepositoryImpl());
+            dispose();
+            productsui.setVisible(true);
+            productsui.initUI();
+        } else {
+            WarningMessageUi.showDialog(this, strings.getString("menu_dialog_error_permission_title"), 
+            strings.getString("menu_dialog_error_permission_description"));
+        }
     }//GEN-LAST:event_menu_btn_productsActionPerformed
 
     private void menu_btn_languageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_languageActionPerformed

@@ -1,5 +1,7 @@
 package globalproject.data;
 
+import com.sun.org.apache.xml.internal.dtm.ref.DTMManagerDefault;
+import globalproject.ModuleConstants;
 import globalproject.data.callback.ResponseCallback;
 import globalproject.domain.User;
 
@@ -29,10 +31,10 @@ public final class LoginHelper {
                 break;
             }
             
-            case "sunat": {
-                if("sunatttt1".equals(userpassword)){
+            case "pacifico": {
+                if("pacifico1".equals(userpassword)){
                     isLogged = true;
-                    userFormalName = "SUNAT";
+                    userFormalName = "Pacífico Seguros SAC";
                 }
                 break;
             }
@@ -59,6 +61,55 @@ public final class LoginHelper {
             callback.onSuccess(loggedUser);
         } else {
             callback.onFailure(ERROR_WRONG_PASSWORD);
+        }
+        
+    }
+    
+    public static boolean userHasModulePermission(int MODULE_CODE){
+        
+        switch(MODULE_CODE){
+            
+            case ModuleConstants.MODULE_PRODUCTS:{
+                
+                switch(Session.getCurrentSession().getLoggedUser().getUserName()){
+                    
+                    case "cocacola": 
+                    case "pacifico": 
+                    case "storagedata": return true;
+                    default: return false;
+                    
+                }
+                
+            }
+            
+            case ModuleConstants.MODULE_SERVICES:{
+                switch(Session.getCurrentSession().getLoggedUser().getUserName()){
+                    
+                    case "cocacola": 
+                    case "pacifico": 
+                    case "storagedata": return true;
+                    default: return false;
+                    
+                }
+            }
+            
+            case ModuleConstants.MODULE_EMPLOYEES:{
+                
+                switch(Session.getCurrentSession().getLoggedUser().getUserName()){
+                     
+                    case "pacifico": 
+                    case "storagedata": return true;
+                    default: return false;
+                    
+                }
+
+            }
+            
+            case ModuleConstants.MODULE_ACCOUNTING: 
+                return "storagedata".equals(Session.getCurrentSession().getLoggedUser().getUserName());
+            
+            default: return false;
+            
         }
         
     }
