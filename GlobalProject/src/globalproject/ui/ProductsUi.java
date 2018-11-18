@@ -8,6 +8,7 @@ package globalproject.ui;
 
 import globalproject.BaseModuleWindows;
 import globalproject.BaseWindows;
+import globalproject.data.ProductsRepositoryImpl;
 import globalproject.domain.Product;
 import globalproject.domain.ProductsRepository;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import javax.swing.JButton;
  */
 public class ProductsUi extends BaseModuleWindows {
 
-    private ProductsRepository repository;
+    private ProductsRepository repository = new ProductsRepositoryImpl();
    
     /**
      * Creates new form ProductsUI
@@ -27,6 +28,7 @@ public class ProductsUi extends BaseModuleWindows {
     public ProductsUi() {
         initComponents();
         runBackButton();
+        initUI();
     }
     
     @Override

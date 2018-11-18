@@ -25,7 +25,6 @@ public abstract class BaseModuleWindows extends BaseWindows {
     
     protected void backToMenu(){
         Menu menu = new Menu();
-        this.setVisible(false);
         dispose();
         menu.setVisible(true);
     }

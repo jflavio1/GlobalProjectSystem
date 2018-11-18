@@ -254,10 +254,9 @@ public final class Menu extends BaseWindows {
             strings.getString("menu_dialog_loginfirst_title"), JOptionPane.WARNING_MESSAGE);
         } else if (LoginHelper.userHasModulePermission(ModuleConstants.MODULE_PRODUCTS)){
             ProductsUi productsui = new ProductsUi();
-            productsui.setRepository(new ProductsRepositoryImpl());
-            dispose();
+            this.setVisible(false);
+            this.dispose();
             productsui.setVisible(true);
-            productsui.initUI();
         } else {
             JOptionPane.showMessageDialog(this, 
             strings.getString("menu_dialog_error_permission_description"),
