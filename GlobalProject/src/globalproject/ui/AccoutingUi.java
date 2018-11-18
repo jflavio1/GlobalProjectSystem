@@ -2,6 +2,12 @@
 package globalproject.ui;
 
 import globalproject.BaseModuleWindows;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 
 /**
@@ -30,6 +36,20 @@ public class AccoutingUi extends BaseModuleWindows {
 
         accountingui_lbl_title = new javax.swing.JLabel();
         accountingui_btn_back = new javax.swing.JButton();
+        accountin_btn_paytaxes = new javax.swing.JButton();
+        accountingui_txt_costs = new javax.swing.JLabel();
+        accountingui_lbl_ingresos = new javax.swing.JLabel();
+        accountingui_txt_ingresos = new javax.swing.JLabel();
+        accountingui_lbl_neta = new javax.swing.JLabel();
+        accountingui_txt_neta = new javax.swing.JLabel();
+        accountingui_lbl_costs = new javax.swing.JLabel();
+        accountingui_txt_bruta = new javax.swing.JLabel();
+        accountingui_lbl_bruta = new javax.swing.JLabel();
+        accountingui_txt_impuestos = new javax.swing.JLabel();
+        accountingui_lbl_taxes = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,16 +59,93 @@ public class AccoutingUi extends BaseModuleWindows {
 
         accountingui_btn_back.setText(".......");
 
+        accountin_btn_paytaxes.setText("Pay taxes");
+        accountin_btn_paytaxes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accountin_btn_paytaxesActionPerformed(evt);
+            }
+        });
+
+        accountingui_txt_costs.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        accountingui_txt_costs.setText("Costo de Servicios");
+
+        accountingui_lbl_ingresos.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        accountingui_lbl_ingresos.setText("3500");
+
+        accountingui_txt_ingresos.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        accountingui_txt_ingresos.setText("Ingresos");
+
+        accountingui_lbl_neta.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        accountingui_lbl_neta.setText("200");
+
+        accountingui_txt_neta.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        accountingui_txt_neta.setText("Ganancia Neta");
+
+        accountingui_lbl_costs.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        accountingui_lbl_costs.setText("1000");
+
+        accountingui_txt_bruta.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        accountingui_txt_bruta.setText("Ganancia Bruta");
+
+        accountingui_lbl_bruta.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        accountingui_lbl_bruta.setText("1000");
+
+        accountingui_txt_impuestos.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        accountingui_txt_impuestos.setText("Impuestos");
+
+        accountingui_lbl_taxes.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        accountingui_lbl_taxes.setText("200");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(accountingui_btn_back)
-                .addGap(109, 109, 109)
-                .addComponent(accountingui_lbl_title)
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addGap(102, 102, 102)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(accountin_btn_paytaxes, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(97, 97, 97))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(accountingui_txt_ingresos, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(accountingui_lbl_ingresos, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(accountingui_txt_costs, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                                .addComponent(accountingui_lbl_costs, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(accountingui_txt_bruta, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(accountingui_lbl_bruta, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(accountingui_txt_impuestos, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(accountingui_lbl_taxes, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(accountingui_txt_neta, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(accountingui_lbl_neta, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(74, 74, 74))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(accountingui_btn_back)
+                        .addGap(109, 109, 109)
+                        .addComponent(accountingui_lbl_title))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -57,11 +154,43 @@ public class AccoutingUi extends BaseModuleWindows {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(accountingui_btn_back)
                     .addComponent(accountingui_lbl_title))
-                .addContainerGap(390, Short.MAX_VALUE))
+                .addGap(64, 64, 64)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(accountingui_txt_ingresos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(accountingui_lbl_ingresos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(accountingui_txt_costs, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(accountingui_lbl_costs, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(accountingui_txt_bruta, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(accountingui_lbl_bruta, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(accountingui_txt_impuestos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(accountingui_lbl_taxes, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(accountingui_txt_neta, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(accountingui_lbl_neta, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(accountin_btn_paytaxes, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void accountin_btn_paytaxesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountin_btn_paytaxesActionPerformed
+        openSunatSite();
+    }//GEN-LAST:event_accountin_btn_paytaxesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -99,8 +228,22 @@ public class AccoutingUi extends BaseModuleWindows {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton accountin_btn_paytaxes;
     private javax.swing.JButton accountingui_btn_back;
+    private javax.swing.JLabel accountingui_lbl_bruta;
+    private javax.swing.JLabel accountingui_lbl_costs;
+    private javax.swing.JLabel accountingui_lbl_ingresos;
+    private javax.swing.JLabel accountingui_lbl_neta;
+    private javax.swing.JLabel accountingui_lbl_taxes;
     private javax.swing.JLabel accountingui_lbl_title;
+    private javax.swing.JLabel accountingui_txt_bruta;
+    private javax.swing.JLabel accountingui_txt_costs;
+    private javax.swing.JLabel accountingui_txt_impuestos;
+    private javax.swing.JLabel accountingui_txt_ingresos;
+    private javax.swing.JLabel accountingui_txt_neta;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -111,5 +254,41 @@ public class AccoutingUi extends BaseModuleWindows {
     @Override
     protected void initUI() {
         accountingui_lbl_title.setText(strings.getString("accounting_lbl_title"));
+        accountin_btn_paytaxes.setText(strings.getString("accounting_lbl_paytaxes"));
+        accountingui_txt_ingresos.setText(strings.getString("accountingui_txt_ingresos"));
+        accountingui_txt_costs.setText(strings.getString("accountingui_txt_costs"));
+        accountingui_txt_bruta.setText(strings.getString("accountingui_txt_bruta"));
+        accountingui_txt_impuestos.setText(strings.getString("accountingui_txt_impuestos"));
+        accountingui_txt_neta.setText(strings.getString("accountingui_txt_neta"));
+        
+        int ingresos = 5000;
+        int costs = new Double(ingresos*0.4).intValue();
+        int bruta = ingresos - costs;
+        
+        int impuestos = new Double(bruta*0.3).intValue();
+        int neta = bruta - impuestos;
+        
+        accountingui_lbl_ingresos.setText(String.valueOf(ingresos));
+        accountingui_lbl_costs.setText(String.valueOf(costs));
+        accountingui_lbl_bruta.setText(String.valueOf(bruta));
+        accountingui_lbl_taxes.setText(String.valueOf(impuestos));
+        accountingui_lbl_neta.setText(String.valueOf(neta));
+        
+        
     }
+    
+    private void openSunatSite(){
+        if (Desktop.isDesktopSupported()) {
+            try {
+                Desktop.getDesktop().browse(new URI("https://www.sunat.gob.pe/xssecurity/SignOnVerification."
+                        + "htm?signonForwardAction=https%3A%2F%2Fe-renta.sunat.gob.pe%2Fol-ti-itperjuridica-"
+                        + "bs%2FPresentacionRenta.htm"));
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(AccoutingUi.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(AccoutingUi.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
 }

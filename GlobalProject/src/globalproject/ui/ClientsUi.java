@@ -39,7 +39,7 @@ public class ClientsUi extends BaseModuleWindows {
     @Override
     protected void initUI() {
         
-        clientsui_lbl_title.setText(strings.getString("employees_lbl_title"));
+        clientsui_lbl_title.setText(strings.getString("clients_lbl_title"));
         
         ArrayList<Cliente> lista = (ArrayList<Cliente>) this.repository.getAll();
         
@@ -47,16 +47,16 @@ public class ClientsUi extends BaseModuleWindows {
         
         String empCodeTitle = "Cod Cliente";
         String empNameTitle = "Cliente Name";
-        String empAgeTitle = "cliente Age";
-        sb.append(empCodeTitle+"\t\t" + empNameTitle +"\t" + empAgeTitle  +"\r\n");
+        String rubro = "Rubro";
+        sb.append(empCodeTitle+"\t\t" + empNameTitle +"\t\t" + rubro  +"\r\n");
         
         for (int i = 0; i < lista.size(); i++) {
             
             String empCode = lista.get(i).getCliId();
             String empName = lista.get(i).getCliNombre();
-            String empAge = lista.get(i).getCliRubro();
+            String empRubro = lista.get(i).getCliRubro();
                         
-            sb.append(empCode+"\t\t" + empName +"\t\t" + empAge +"\r\n");
+            sb.append(empCode+"\t\t" + empName +"\t\t" + empRubro +"\r\n");
             sb.append("\r\n");
         }
         productsui_lbl_list.setText(sb.toString());
