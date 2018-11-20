@@ -85,6 +85,7 @@ public class ProductsUi extends BaseModuleWindows {
 
         producstui_lbl_title.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         producstui_lbl_title.setText("Productos");
+        producstui_lbl_title.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         productsui_lbl_list.setColumns(20);
         productsui_lbl_list.setRows(5);
@@ -97,16 +98,13 @@ public class ProductsUi extends BaseModuleWindows {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(productsui_btn_back)
-                        .addGap(152, 152, 152)
-                        .addComponent(producstui_lbl_title)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(productsui_btn_back)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+                    .addComponent(producstui_lbl_title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

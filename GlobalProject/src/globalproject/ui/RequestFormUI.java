@@ -137,6 +137,10 @@ public class RequestFormUI extends BaseModuleWindows {
         
         RequestSingleton.getCurrentSingletonRequests().addRequest(req);
         
+        RequestUI ui = new RequestUI();
+        dispose();
+        ui.setVisible(true);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void requestUi_et_budgetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestUi_et_budgetActionPerformed

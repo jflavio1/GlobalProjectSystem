@@ -149,6 +149,11 @@ public final class Menu extends BaseWindows {
 
         menu_btn_requests.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         menu_btn_requests.setText("Peticiones");
+        menu_btn_requests.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_btn_requestsActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
@@ -316,6 +321,17 @@ public final class Menu extends BaseWindows {
                     strings.getString("menu_dialog_error_permission_title"), JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_menu_btn_employeesActionPerformed
+
+    private void menu_btn_requestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_btn_requestsActionPerformed
+        if(!Session.getCurrentSession().isLogged()){
+            JOptionPane.showMessageDialog(this, strings.getString("menu_dialog_loginfirst_description"),
+                    strings.getString("menu_dialog_loginfirst_title"), JOptionPane.WARNING_MESSAGE);
+        } else {
+            RequestsWindow ui = new RequestsWindow();
+            dispose();
+            ui.setVisible(true);
+        }
+    }//GEN-LAST:event_menu_btn_requestsActionPerformed
 
     /**
      * @param args the command line arguments
